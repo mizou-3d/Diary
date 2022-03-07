@@ -9,17 +9,21 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var listTable: UITableView!
-    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet var listTable: UITableView!
+    @IBOutlet var addButton: UIButton!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //addButton.layer.cornerRadius = 40
+        listTable.delegate = self
+        listTable.dataSource = self
+        addButton.layer.cornerRadius = 40
+        self.view.bringSubviewToFront(addButton)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

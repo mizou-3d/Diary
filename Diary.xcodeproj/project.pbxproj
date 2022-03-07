@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D652F9B027D5D3DC00CB0EC6 /* MyUINavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D652F9AF27D5D3DC00CB0EC6 /* MyUINavigationViewController.swift */; };
 		D674435927D2A85800F1DDF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674435827D2A85800F1DDF1 /* AppDelegate.swift */; };
 		D674435B27D2A85800F1DDF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674435A27D2A85800F1DDF1 /* SceneDelegate.swift */; };
 		D674435D27D2A85800F1DDF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674435C27D2A85800F1DDF1 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D652F9AF27D5D3DC00CB0EC6 /* MyUINavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUINavigationViewController.swift; sourceTree = "<group>"; };
 		D674435527D2A85800F1DDF1 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D674435827D2A85800F1DDF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D674435A27D2A85800F1DDF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				D674437127D3FB8E00F1DDF1 /* ListViewController.swift */,
 				D674437327D3FBA000F1DDF1 /* DayViewController.swift */,
 				D674437527D3FBAD00F1DDF1 /* AddViewController.swift */,
+				D652F9AF27D5D3DC00CB0EC6 /* MyUINavigationViewController.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D652F9B027D5D3DC00CB0EC6 /* MyUINavigationViewController.swift in Sources */,
 				D674435D27D2A85800F1DDF1 /* ViewController.swift in Sources */,
 				D674437427D3FBA000F1DDF1 /* DayViewController.swift in Sources */,
 				D674437627D3FBAD00F1DDF1 /* AddViewController.swift in Sources */,
