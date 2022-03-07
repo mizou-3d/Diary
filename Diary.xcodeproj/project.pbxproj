@@ -13,6 +13,15 @@
 		D674436027D2A85800F1DDF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D674435E27D2A85800F1DDF1 /* Main.storyboard */; };
 		D674436227D2A85D00F1DDF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D674436127D2A85D00F1DDF1 /* Assets.xcassets */; };
 		D674436527D2A85D00F1DDF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D674436327D2A85D00F1DDF1 /* LaunchScreen.storyboard */; };
+		D674436E27D2AED000F1DDF1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D674436D27D2AED000F1DDF1 /* Realm */; };
+		D674437027D2AED000F1DDF1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D674436F27D2AED000F1DDF1 /* RealmSwift */; };
+		D674437227D3FB8E00F1DDF1 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674437127D3FB8E00F1DDF1 /* ListViewController.swift */; };
+		D674437427D3FBA000F1DDF1 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674437327D3FBA000F1DDF1 /* DayViewController.swift */; };
+		D674437627D3FBAD00F1DDF1 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674437527D3FBAD00F1DDF1 /* AddViewController.swift */; };
+		D674438027D406BF00F1DDF1 /* arrow-left-s-line.png in Resources */ = {isa = PBXBuildFile; fileRef = D674437E27D406BE00F1DDF1 /* arrow-left-s-line.png */; };
+		D674438127D406BF00F1DDF1 /* pencil-line.png in Resources */ = {isa = PBXBuildFile; fileRef = D674437F27D406BF00F1DDF1 /* pencil-line.png */; };
+		D674438427D407EE00F1DDF1 /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = D674438327D407EE00F1DDF1 /* SVGKit */; };
+		D674438627D407EE00F1DDF1 /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D674438527D407EE00F1DDF1 /* SVGKitSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +33,11 @@
 		D674436127D2A85D00F1DDF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D674436427D2A85D00F1DDF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D674436627D2A85D00F1DDF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D674437127D3FB8E00F1DDF1 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		D674437327D3FBA000F1DDF1 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		D674437527D3FBAD00F1DDF1 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		D674437E27D406BE00F1DDF1 /* arrow-left-s-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left-s-line.png"; sourceTree = "<group>"; };
+		D674437F27D406BF00F1DDF1 /* pencil-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pencil-line.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +45,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D674438627D407EE00F1DDF1 /* SVGKitSwift in Frameworks */,
+				D674438427D407EE00F1DDF1 /* SVGKit in Frameworks */,
+				D674437027D2AED000F1DDF1 /* RealmSwift in Frameworks */,
+				D674436E27D2AED000F1DDF1 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +74,7 @@
 		D674435727D2A85800F1DDF1 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				D674437927D404E800F1DDF1 /* Diary_Resource */,
 				D674435827D2A85800F1DDF1 /* AppDelegate.swift */,
 				D674435A27D2A85800F1DDF1 /* SceneDelegate.swift */,
 				D674435C27D2A85800F1DDF1 /* ViewController.swift */,
@@ -63,8 +82,20 @@
 				D674436127D2A85D00F1DDF1 /* Assets.xcassets */,
 				D674436327D2A85D00F1DDF1 /* LaunchScreen.storyboard */,
 				D674436627D2A85D00F1DDF1 /* Info.plist */,
+				D674437127D3FB8E00F1DDF1 /* ListViewController.swift */,
+				D674437327D3FBA000F1DDF1 /* DayViewController.swift */,
+				D674437527D3FBAD00F1DDF1 /* AddViewController.swift */,
 			);
 			path = Diary;
+			sourceTree = "<group>";
+		};
+		D674437927D404E800F1DDF1 /* Diary_Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D674437E27D406BE00F1DDF1 /* arrow-left-s-line.png */,
+				D674437F27D406BF00F1DDF1 /* pencil-line.png */,
+			);
+			path = Diary_Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +114,12 @@
 			dependencies = (
 			);
 			name = Diary;
+			packageProductDependencies = (
+				D674436D27D2AED000F1DDF1 /* Realm */,
+				D674436F27D2AED000F1DDF1 /* RealmSwift */,
+				D674438327D407EE00F1DDF1 /* SVGKit */,
+				D674438527D407EE00F1DDF1 /* SVGKitSwift */,
+			);
 			productName = Diary;
 			productReference = D674435527D2A85800F1DDF1 /* Diary.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +148,10 @@
 				Base,
 			);
 			mainGroup = D674434C27D2A85800F1DDF1;
+			packageReferences = (
+				D674436C27D2AED000F1DDF1 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				D674438227D407EE00F1DDF1 /* XCRemoteSwiftPackageReference "SVGKit" */,
+			);
 			productRefGroup = D674435627D2A85800F1DDF1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -128,6 +169,8 @@
 				D674436527D2A85D00F1DDF1 /* LaunchScreen.storyboard in Resources */,
 				D674436227D2A85D00F1DDF1 /* Assets.xcassets in Resources */,
 				D674436027D2A85800F1DDF1 /* Main.storyboard in Resources */,
+				D674438127D406BF00F1DDF1 /* pencil-line.png in Resources */,
+				D674438027D406BF00F1DDF1 /* arrow-left-s-line.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +182,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D674435D27D2A85800F1DDF1 /* ViewController.swift in Sources */,
+				D674437427D3FBA000F1DDF1 /* DayViewController.swift in Sources */,
+				D674437627D3FBAD00F1DDF1 /* AddViewController.swift in Sources */,
 				D674435927D2A85800F1DDF1 /* AppDelegate.swift in Sources */,
+				D674437227D3FB8E00F1DDF1 /* ListViewController.swift in Sources */,
 				D674435B27D2A85800F1DDF1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +406,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D674436C27D2AED000F1DDF1 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		D674438227D407EE00F1DDF1 /* XCRemoteSwiftPackageReference "SVGKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVGKit/SVGKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D674436D27D2AED000F1DDF1 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D674436C27D2AED000F1DDF1 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		D674436F27D2AED000F1DDF1 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D674436C27D2AED000F1DDF1 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		D674438327D407EE00F1DDF1 /* SVGKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D674438227D407EE00F1DDF1 /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKit;
+		};
+		D674438527D407EE00F1DDF1 /* SVGKitSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D674438227D407EE00F1DDF1 /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKitSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D674434D27D2A85800F1DDF1 /* Project object */;
 }
