@@ -11,15 +11,13 @@ class MyUINavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         navigationBar.barTintColor = .white
         navigationBar.tintColor = UIColor(named: "pink")
         navigationBar.titleTextAttributes = [
-                    .foregroundColor: UIColor(named: "navy")
+            .foregroundColor: UIColor(named: "navy")!
                 ]
     }
     
-
     /*
     // MARK: - Navigation
 

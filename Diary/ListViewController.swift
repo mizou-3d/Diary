@@ -6,15 +6,28 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var listTable: UITableView!
     @IBOutlet var addButton: UIButton!
 
+    var recordItems: Results<Record>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(
+        title: "",
+        style: .plain,
+        target: nil,
+        action: nil
+        )
+        
+        let realm = try! Realm()
+        self.recordItems = realm.objects(Record.self)
+        listTable.reloadData()
 
         listTable.delegate = self
         listTable.dataSource = self
@@ -22,28 +35,35 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.view.bringSubviewToFront(addButton)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        listTable.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return recordItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = listTable.dequeueReusableCell(withIdentifier: "Cell")
-        cell?.textLabel?.text = "日記"
-        return cell!
+        let cell = listTable.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let item: Record = recordItems[indexPath.row]
+        cell.textLabel?.text = item.detailText
+        //cell.detailTextLabel?.text = item.detailText
+        return cell
     }
     
     var startingFrame: CGRect!
     var endingFrame: CGRect!
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if(scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) && self.addButton.isHidden {
-            self.addButton.isHidden = false
-            self.addButton.frame = startingFrame
-            UIView.animate(withDuration: 1.0){
-                self.addButton.frame = self.endingFrame
-            }
-        }
-    }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if(scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) && self.addButton.isHidden {
+//            self.addButton.isHidden = false
+//            self.addButton.frame = startingFrame
+//            UIView.animate(withDuration: 1.0){
+//                self.addButton.frame = self.endingFrame
+//            }
+//        }
+//    }
     
     func configureSizes(){
         let screenSize = UIScreen.main.bounds
