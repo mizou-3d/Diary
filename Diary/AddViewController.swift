@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AddViewController: UIViewController {
     
     @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var contentTextView: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,15 @@ class AddViewController: UIViewController {
     
     @IBAction func save(){
         
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // 入力を反映させたテキストを取得する
+        let resultText: String = (textView.text! as NSString).replacingCharacters(in: range, with: text)
+        if resultText.count <= 50 {
+            return true
+        }
+        return false
     }
     
 

@@ -7,12 +7,16 @@
 
 import UIKit
 
-class MyUINavigationViewController: UIViewController {
+class MyUINavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationBar.barTintColor = .white
+        navigationBar.tintColor = UIColor(named: "pink")
+        navigationBar.titleTextAttributes = [
+                    .foregroundColor: UIColor(named: "navy")
+                ]
     }
     
 
