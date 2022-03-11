@@ -47,7 +47,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = listTable.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let item: Record = recordItems[indexPath.row]
-        cell.textLabel?.text = item.detailText
+        cell.textLabel?.text = item.date
         //cell.detailTextLabel?.text = item.detailText
         return cell
     }

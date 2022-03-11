@@ -46,8 +46,10 @@ class AddViewController: UIViewController {
     @IBAction func save(){
         let realm2 = try! Realm()
         let recordItem: Record = Record()
-        //recordItem.date = self.datePicker.text
-        //recordItem.detailText = self.contentTextView.text
+        recordItem.recordCount += 1
+        recordItem.date = dateFormat(m_datepicker: datePicker)
+        recordItem.dateTime = timeFormat(m_datepicker: datePicker)
+        recordItem.detailText = self.contentTextView.text
         try! realm2.write{
             realm2.add(recordItem)
         }
