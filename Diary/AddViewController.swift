@@ -12,12 +12,36 @@ class AddViewController: UIViewController {
     let realm = try! Realm()
     @IBOutlet var contentTextView: UITextView!
     @IBOutlet var datePicker: UIDatePicker!
+    
+    let formatter: DateFormatter = DateFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        datePicker.preferredDatePickerStyle = .compact
+        datePicker.datePickerMode = .dateAndTime
+        
+        self.navigationItem.title = "\(dateFormat(m_datepicker: datePicker))"
+        
+        datePicker.addTarget(self, action: #selector(changeTitle), for: .valueChanged)
+        
     }
+    
+    @objc func changeTitle(_ datePicker: UIDatePicker){
+        self.navigationItem.title = "\(dateFormat(m_datepicker: datePicker))"
+    }
+    
+    func dateFormat(m_datepicker: UIDatePicker) -> String{
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.dateStyle = .full
+        return formatter.string(from: m_datepicker.date)
+    }
+    func timeFormat(m_datepicker: UIDatePicker) -> String{
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.timeStyle = .short
+        return formatter.string(from: m_datepicker.date)
+    }
+    
     
     @IBAction func save(){
         let realm2 = try! Realm()
