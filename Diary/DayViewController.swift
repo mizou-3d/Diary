@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class DayViewController: UIViewController {
+class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let realm = try! Realm()
     let recordItem: Record = Record()
@@ -26,11 +26,29 @@ class DayViewController: UIViewController {
         super.viewDidLoad()
 
         dayLabel.text = dateFilter
+        let predicate = NSPredicate(format: "date == %@", dateFilter)
+        let results = realm.objects(Record.self).filter(predicate)
+        print(results.count)
+        
+        timeTable.delegate = self
+        timeTable.dataSource = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        dayLabel.text = dateFilter
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let predicate = NSPredicate(format: "date == %@", dateFilter)
+        let results = realm.objects(Record.self).filter(predicate)
+        return results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let predicate = NSPredicate(format: "date == %@", dateFilter)
+        let results = realm.objects(Record.self).filter(predicate).sorted(byKeyPath: "hiduke", ascending: true)
+        let cell: DayTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? DayTableViewCell
+        cell.timeLabel.text = results[indexPath.row].dateTime
+        cell.contentLabel.text = results[indexPath.row].detailText
+        cell.contentBackground.layer.cornerRadius = 10
+        cell.contentBackground.layer.masksToBounds = true
+        return cell
     }
     
     @IBAction func tapUre(){

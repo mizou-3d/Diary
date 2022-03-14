@@ -49,8 +49,8 @@ class AddViewController: UIViewController {
     @IBAction func save(){
         let realm2 = try! Realm()
         let recordItem: Record = Record()
-        //let contentItem = Content()
         recordItem.recordCount += 1
+        recordItem.hiduke = datePicker.date
         recordItem.date = dateFormat(m_datepicker: datePicker)
         recordItem.dateTime = timeFormat(m_datepicker: datePicker)
         recordItem.detailText = self.contentTextView.text
