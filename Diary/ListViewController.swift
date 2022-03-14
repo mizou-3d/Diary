@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import SwiftUI
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -14,6 +15,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var addButton: UIButton!
 
     var recordItems: Results<Record>!
+    //var contentItems: Record = Record()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,35 +47,63 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = listTable.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let item: Record = recordItems[indexPath.row]
-        cell.textLabel?.text = item.date
-        //cell.detailTextLabel?.text = item.detailText
+        let cell: ListTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? ListTableViewCell
+        //let item: Record = recordItems[indexPath.row]
+        cell.timeLabel.text = recordItems[indexPath.row].dateTime
+        cell.contentLabel.text = recordItems[indexPath.row].detailText
         return cell
     }
     
-    var startingFrame: CGRect!
-    var endingFrame: CGRect!
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\(recordItems[indexPath.row].date) is selected.")
+        let dayView = storyboard?.instantiateViewController(withIdentifier: "dayViewController") as! DayViewController
+        dayView.dateFilter =  "\(recordItems[indexPath.row].date)"
+        //performSegue(withIdentifier: "toGoDayRecord", sender: nil)
+        self.navigationController?.pushViewController(dayView, animated: true)
+    }
     
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if(scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) && self.addButton.isHidden {
-//            self.addButton.isHidden = false
-//            self.addButton.frame = startingFrame
-//            UIView.animate(withDuration: 1.0){
-//                self.addButton.frame = self.endingFrame
-//            }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toGoDayRecord" {
+//            let dayView = segue.destination as! DayViewController
+//            dayView.dateFilter = selectedDay
 //        }
 //    }
     
-    func configureSizes(){
-        let screenSize = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        
-        startingFrame = CGRect(x: 0, y: screenHeight+100, width: screenWidth, height: 100)
-        endingFrame = CGRect(x: 0, y: screenHeight-100, width: screenWidth, height: 100)
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return recordItems.count
+//    }
+//    func tableview(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
+//        return recordItems[section].date
+//    }
     
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return recordItems.count
+//    }
+//
+//    //Mark: ヘッダーの大きさを設定する
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat{
+//
+//        return 50
+//    }
+//
+//    //Mark: ヘッダーに設定するViewを設定する
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?{
+//
+//        //ヘッダーにするビューを生成
+//        let view = UIView()
+//        view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50)
+//
+//        //ヘッダーに追加するラベルを生成
+//        let headerLabel = UILabel()
+//        let item: Record = recordItems[section]
+//        headerLabel.frame =  CGRect(x: 0, y: 30, width: self.view.frame.size.width, height: 50)
+//        headerLabel.text = item.date
+//        headerLabel.textAlignment = NSTextAlignment.center
+//        view.addSubview(headerLabel)
+//
+//        return view
+//    }
+
 
     /*
     // MARK: - Navigation

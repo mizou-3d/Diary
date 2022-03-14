@@ -10,10 +10,13 @@ import RealmSwift
 
 class AddViewController: UIViewController {
     let realm = try! Realm()
+    //var contents: List<Record>!
+    
     @IBOutlet var contentTextView: UITextView!
     @IBOutlet var datePicker: UIDatePicker!
     
-    let formatter: DateFormatter = DateFormatter()
+    let day_formatter: DateFormatter = DateFormatter()
+    let time_formatter: DateFormatter = DateFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,26 +35,32 @@ class AddViewController: UIViewController {
     }
     
     func dateFormat(m_datepicker: UIDatePicker) -> String{
-        formatter.locale = Locale(identifier: "ja_JP")
-        formatter.dateStyle = .full
-        return formatter.string(from: m_datepicker.date)
+        day_formatter.locale = Locale(identifier: "ja_JP")
+        day_formatter.dateStyle = .full
+        return day_formatter.string(from: m_datepicker.date)
     }
     func timeFormat(m_datepicker: UIDatePicker) -> String{
-        formatter.locale = Locale(identifier: "ja_JP")
-        formatter.timeStyle = .short
-        return formatter.string(from: m_datepicker.date)
+        time_formatter.locale = Locale(identifier: "ja_JP")
+        time_formatter.timeStyle = .short
+        return time_formatter.string(from: m_datepicker.date)
     }
     
     
     @IBAction func save(){
         let realm2 = try! Realm()
         let recordItem: Record = Record()
+        //let contentItem = Content()
         recordItem.recordCount += 1
         recordItem.date = dateFormat(m_datepicker: datePicker)
         recordItem.dateTime = timeFormat(m_datepicker: datePicker)
         recordItem.detailText = self.contentTextView.text
         try! realm2.write{
+//            realm2.add(recordItem, update: .modified)
             realm2.add(recordItem)
+//            let nakami = realm2.objects(Record.self).filter("date == \(dateFormat(m_datepicker: datePicker))")
+//            for recordItem in nakami{
+//                recordItem.contents.append(contentItem)
+//            }
         }
         self.navigationController?.popViewController(animated: true)
     }

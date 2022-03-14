@@ -11,8 +11,14 @@ import UIKit
 
 class Record: Object{
     @objc dynamic var recordCount: Int = 0
-    //@objc dynamic var kibun: UIImage!
-    @objc dynamic var dateTime: String = ""
+    @objc dynamic var kibun: String = ""
     @objc dynamic var date: String = ""
+    //@objc dynamic var hiduke: Date!
+    @objc dynamic var dateTime: String = ""
     @objc dynamic var detailText: String = ""
+    
+//    override static func primaryKey() -> String? {
+//        return "date"
+//    }
 }
+
