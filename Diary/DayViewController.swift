@@ -42,10 +42,10 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let predicate = NSPredicate(format: "date == %@", dateFilter)
-        let results = realm.objects(Record.self).filter(predicate).sorted(byKeyPath: "hiduke", ascending: true)
+        let results = realm.objects(Record.self).filter(predicate)//.sorted(byKeyPath: "hiduke", ascending: true)
         let cell: DayTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? DayTableViewCell
-        cell.timeLabel.text = results[indexPath.row].dateTime
-        cell.contentLabel.text = results[indexPath.row].detailText
+        cell.timeLabel.text = results[indexPath.section].contents[indexPath.row].dateTime
+        cell.contentLabel.text = results[indexPath.section].contents[indexPath.row].detailText
         cell.contentBackground.layer.cornerRadius = 10
         cell.contentBackground.layer.masksToBounds = true
         return cell

@@ -18,6 +18,7 @@
 		D65D59DC27DE62E600B0B09D /* mizo_ma.png in Resources */ = {isa = PBXBuildFile; fileRef = D65D59D527DE62E500B0B09D /* mizo_ma.png */; };
 		D65D59DE27DE6EE200B0B09D /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D59DD27DE6EE200B0B09D /* ListTableViewCell.swift */; };
 		D65D59E527DEDD1900B0B09D /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D59E427DEDD1900B0B09D /* DayTableViewCell.swift */; };
+		D65D59E727DFA69100B0B09D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D59E627DFA69100B0B09D /* RealmService.swift */; };
 		D674435927D2A85800F1DDF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674435827D2A85800F1DDF1 /* AppDelegate.swift */; };
 		D674435B27D2A85800F1DDF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674435A27D2A85800F1DDF1 /* SceneDelegate.swift */; };
 		D674435D27D2A85800F1DDF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674435C27D2A85800F1DDF1 /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 		D65D59D527DE62E500B0B09D /* mizo_ma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mizo_ma.png; sourceTree = "<group>"; };
 		D65D59DD27DE6EE200B0B09D /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		D65D59E427DEDD1900B0B09D /* DayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
+		D65D59E627DFA69100B0B09D /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		D674435527D2A85800F1DDF1 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D674435827D2A85800F1DDF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D674435A27D2A85800F1DDF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				D652F9B127D5D47500CB0EC6 /* MyUINavigationViewController.swift */,
 				D65D59DD27DE6EE200B0B09D /* ListTableViewCell.swift */,
 				D65D59E427DEDD1900B0B09D /* DayTableViewCell.swift */,
+				D65D59E627DFA69100B0B09D /* RealmService.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D652F9B227D5D47500CB0EC6 /* MyUINavigationViewController.swift in Sources */,
+				D65D59E727DFA69100B0B09D /* RealmService.swift in Sources */,
 				D674435D27D2A85800F1DDF1 /* ViewController.swift in Sources */,
 				D65D59E527DEDD1900B0B09D /* DayTableViewCell.swift in Sources */,
 				D674437427D3FBA000F1DDF1 /* DayViewController.swift in Sources */,

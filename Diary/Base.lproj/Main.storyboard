@@ -24,14 +24,14 @@
                                 <color key="sectionIndexBackgroundColor" name="purple"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Ktg-3p-2LW" customClass="ListTableViewCell" customModule="Diary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ktg-3p-2LW" id="Ovb-AU-gh6">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpz-JR-7aD">
-                                                    <rect key="frame" x="41" y="11" width="60" height="21.5"/>
+                                                    <rect key="frame" x="41" y="11" width="60" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="4q8-aD-ArC"/>
                                                     </constraints>
@@ -40,7 +40,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCD-gq-OHu">
-                                                    <rect key="frame" x="146" y="11" width="59" height="21.5"/>
+                                                    <rect key="frame" x="146" y="11" width="59" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="navy"/>
                                                     <nil key="highlightedColor"/>
@@ -62,6 +62,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mizo_write.png" id="tak-dX-ZPP">
+                                <rect key="frame" x="0.0" y="279" width="414" height="331"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfr-3e-rNr">
                                 <rect key="frame" x="167" y="752" width="80" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.43137254899999999" blue="0.42352941179999998" alpha="0.82276037359999998" colorSpace="calibratedRGB"/>
@@ -78,6 +82,13 @@
                                     <segue destination="4i2-DW-K02" kind="show" id="9ho-RL-O5h"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="記録してみよー" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggi-OE-ctG">
+                                <rect key="frame" x="51" y="357" width="226" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
+                                <color key="textColor" name="navy"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="h72-me-TEg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -94,6 +105,8 @@
                     <connections>
                         <outlet property="addButton" destination="Vfr-3e-rNr" id="95B-aF-RTE"/>
                         <outlet property="listTable" destination="Hs7-Wc-jvb" id="e3a-yx-zJe"/>
+                        <outlet property="zeroImg" destination="tak-dX-ZPP" id="jlu-qg-RPf"/>
+                        <outlet property="zeroLabel" destination="ggi-OE-ctG" id="xue-14-wtU"/>
                         <segue destination="QIx-IL-B9F" kind="show" identifier="toGoDayRecord" id="feT-aB-QJ6"/>
                     </connections>
                 </viewController>
@@ -101,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="79.6875"/>
         </scene>
-        <!--yyyy年MM月dd日-->
+        <!--Add-->
         <scene sceneID="h5u-lp-3Kh">
             <objects>
-                <viewController id="4i2-DW-K02" customClass="AddViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4i2-DW-K02" userLabel="Add" customClass="AddViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CHe-5R-pxk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -311,6 +324,38 @@
             </objects>
             <point key="canvasLocation" x="1673.913043478261" y="79.6875"/>
         </scene>
+        <!--Popover View Controller-->
+        <scene sceneID="VyU-eE-Wst">
+            <objects>
+                <viewController storyboardIdentifier="popoverVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="id9-ph-c5y" customClass="PopoverViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WSe-O9-Lat">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mizo_home.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZbP-4L-hrl">
+                                <rect key="frame" x="48" y="453" width="319" height="318"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hukidashi.png" translatesAutoresizingMaskIntoConstraints="NO" id="WrK-89-Blc">
+                                <rect key="frame" x="37" y="223" width="340" height="290"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="記録できたのすごい！この調子！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9p-sY-he4">
+                                <rect key="frame" x="71" y="344" width="272" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".HiraKakuInterface-W3" family=".Hiragino Kaku Gothic Interface" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ImV-L1-SJs"/>
+                        <color key="backgroundColor" white="0.65944531499123094" alpha="0.51126320946295534" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ml6-Zu-5ZK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1673.913043478261" y="778.79464285714278"/>
+        </scene>
         <!--MyUI Navigation View Controller-->
         <scene sceneID="Bsg-j3-O8e">
             <objects>
@@ -338,10 +383,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="hukidashi.png" width="891.81817626953125" height="636.54547119140625"/>
+        <image name="mizo_home.png" width="787.6363525390625" height="550.90911865234375"/>
         <image name="mizo_iya.png" width="1117.0909423828125" height="1117.0909423828125"/>
         <image name="mizo_kana.png" width="1117.0909423828125" height="1117.0909423828125"/>
         <image name="mizo_ma.png" width="1117.0909423828125" height="1117.0909423828125"/>
         <image name="mizo_ure.png" width="1117.0909423828125" height="1117.0909423828125"/>
+        <image name="mizo_write.png" width="1117.0909423828125" height="1117.0909423828125"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <namedColor name="light_purple">
             <color red="0.88599997758865356" green="0.85500001907348633" blue="0.92199999094009399" alpha="0.76200002431869507" colorSpace="custom" customColorSpace="sRGB"/>

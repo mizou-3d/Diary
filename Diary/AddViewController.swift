@@ -10,7 +10,6 @@ import RealmSwift
 
 class AddViewController: UIViewController {
     let realm = try! Realm()
-    //var contents: List<Record>!
     
     @IBOutlet var contentTextView: UITextView!
     @IBOutlet var datePicker: UIDatePicker!
@@ -47,23 +46,38 @@ class AddViewController: UIViewController {
     
     
     @IBAction func save(){
-        let realm2 = try! Realm()
-        let recordItem: Record = Record()
-        recordItem.recordCount += 1
-        recordItem.hiduke = datePicker.date
-        recordItem.date = dateFormat(m_datepicker: datePicker)
-        recordItem.dateTime = timeFormat(m_datepicker: datePicker)
-        recordItem.detailText = self.contentTextView.text
-        try! realm2.write{
-//            realm2.add(recordItem, update: .modified)
-            realm2.add(recordItem)
-//            let nakami = realm2.objects(Record.self).filter("date == \(dateFormat(m_datepicker: datePicker))")
-//            for recordItem in nakami{
-//                recordItem.contents.append(contentItem)
-//            }
+        let recordItem = Record()
+        let contentItem = Content(value: ["hiduke": datePicker.date, "dateTime": timeFormat(m_datepicker: datePicker), "detailText": self.contentTextView.text!])
+        let predicate = NSPredicate(format: "date == %@", dateFormat(m_datepicker: datePicker))
+        if let results = realm.objects(Record.self).filter(predicate) as Optional{
+            realm.objects(Record.self)[index(ofAccessibilityElement: results)].contents.append(contentItem)
+            print(index(ofAccessibilityElement: results))
+        }else{
+            //recordItem.recordCount += 1
+            recordItem.date = dateFormat(m_datepicker: datePicker)
+            recordItem.contents.append(contentItem)
+            //recordItem.contents = [contentItem] as! List<Content>
         }
+        //let list = recordItem.contents.sorted(byKeyPath: "hiduke", ascending: false)
+        //recordItem.contents.update(list)
+        try! realm.write{
+            realm.add(recordItem, update: .modified)
+        }
+        
+        
+        let popoverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "popoverVC")
+        self.addChild(popoverVC)
+        popoverVC.view.frame = self.view.frame
+        self.view.addSubview(popoverVC.view)
+        popoverVC.didMove(toParent: self)
+        
+        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(timerUpdate), userInfo: nil, repeats: false)
+    }
+    
+    @objc private func timerUpdate(){
         self.navigationController?.popViewController(animated: true)
     }
+    
     
 //    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 //        // 入力を反映させたテキストを取得する

@@ -13,23 +13,31 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet var listTable: UITableView!
     @IBOutlet var addButton: UIButton!
+    
+    @IBOutlet var zeroImg: UIImageView!
+    @IBOutlet var zeroLabel: UILabel!
 
+    let realm = try! Realm()
     var recordItems: Results<Record>!
-    //var contentItems: Record = Record()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.navigationItem.backBarButtonItem = UIBarButtonItem(
         title: "",
         style: .plain,
         target: nil,
         action: nil
         )
-        
-        let realm = try! Realm()
-        self.recordItems = realm.objects(Record.self)
+        //self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "hiduke", ascending: false)
+        //recordItems = realm.objects(Record.self)
         listTable.reloadData()
+        
+        recordItems = realm.objects(Record.self)
+        if recordItems.count > 0 {
+            zeroImg.isHidden = true
+            zeroLabel.isHidden = true
+        }
 
         listTable.delegate = self
         listTable.dataSource = self
@@ -39,19 +47,19 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        //self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "hiduke", ascending: false)
         listTable.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recordItems.count
+        let contentItems = realm.objects(Record.self)
+        return contentItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ListTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? ListTableViewCell
-        //let item: Record = recordItems[indexPath.row]
-        cell.timeLabel.text = recordItems[indexPath.row].dateTime
-        cell.contentLabel.text = recordItems[indexPath.row].detailText
+        cell.timeLabel.text = recordItems[indexPath.section].contents[indexPath.row].dateTime
+        cell.contentLabel.text = recordItems[indexPath.section].contents[indexPath.row].detailText
         return cell
     }
     
@@ -59,28 +67,18 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("\(recordItems[indexPath.row].date) is selected.")
         let dayView = storyboard?.instantiateViewController(withIdentifier: "dayViewController") as! DayViewController
         dayView.dateFilter =  "\(recordItems[indexPath.row].date)"
-        //performSegue(withIdentifier: "toGoDayRecord", sender: nil)
         self.navigationController?.pushViewController(dayView, animated: true)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toGoDayRecord" {
-//            let dayView = segue.destination as! DayViewController
-//            dayView.dateFilter = selectedDay
-//        }
-//    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        recordItems = realm.objects(Record.self)
+        return recordItems.count
+    }
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return recordItems.count
-//    }
-//    func tableview(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
-//        return recordItems[section].date
-//    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return recordItems[section].date
+    }
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return recordItems.count
-//    }
-//
 //    //Mark: ヘッダーの大きさを設定する
 //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat{
 //
