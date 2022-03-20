@@ -14,17 +14,12 @@ class Record: Object{
     @objc dynamic var kibun: String = ""
     @objc dynamic var date: String = ""
     @objc dynamic var listHiduke: Date!
-//    @objc dynamic var dateTime: String = ""
-//    @objc dynamic var detailText: String = ""
     
     var contents = List<Content>()
     
     override class func primaryKey() -> String? {
         return "date"
     }
-//    override static func indexedProperties() -> [String]{
-//        return ["date"]
-//    }
 }
 
 class Content: Object{

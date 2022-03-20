@@ -76,7 +76,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfr-3e-rNr">
                                 <rect key="frame" x="167" y="752" width="80" height="80"/>
-                                <color key="backgroundColor" red="1" green="0.43137254899999999" blue="0.42352941179999998" alpha="0.82276037359999998" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="pink"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="116-Tm-bnV"/>
                                     <constraint firstAttribute="width" constant="80" id="X31-Vs-7co"/>
@@ -397,6 +397,9 @@
         </namedColor>
         <namedColor name="navy">
             <color red="0.12200000137090683" green="0.071000002324581146" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="pink">
+            <color red="1" green="0.4309999942779541" blue="0.42399999499320984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="purple">
             <color red="0.40400001406669617" green="0.33700001239776611" blue="0.54900002479553223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

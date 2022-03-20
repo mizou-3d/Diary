@@ -67,8 +67,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ListTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? ListTableViewCell
-        cell.timeLabel.text = recordItems[indexPath.section].contents[indexPath.row].dateTime
-        cell.contentLabel.text = recordItems[indexPath.section].contents[indexPath.row].detailText
+        let sortData = recordItems[indexPath.section].contents.sorted(byKeyPath: "hiduke", ascending: true)
+        cell.timeLabel.text = sortData[indexPath.row].dateTime
+        cell.contentLabel.text = sortData[indexPath.row].detailText
         return cell
     }
     

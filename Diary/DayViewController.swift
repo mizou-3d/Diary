@@ -11,7 +11,7 @@ import RealmSwift
 class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let realm = try! Realm()
-    let recordItem: Record = Record()
+    var recordItems: Results<Record>!
     
     @IBOutlet var dayLabel: UILabel!
     @IBOutlet var ureButton: UIButton!
@@ -56,31 +56,38 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let predicate = NSPredicate(format: "date == %@", dateFilter)
-        let results = realm.objects(Record.self).filter(predicate)//.sorted(byKeyPath: "hiduke", ascending: true)
+        let results = realm.objects(Record.self)
         let cell: DayTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? DayTableViewCell
-        cell.timeLabel.text = results[indexPath.section].contents[indexPath.row].dateTime
-        cell.contentLabel.text = results[indexPath.section].contents[indexPath.row].detailText
+        let sortData = results[sectionIndex].contents.sorted(byKeyPath: "hiduke", ascending: true)
+        cell.timeLabel.text = sortData[indexPath.row].dateTime
+        cell.contentLabel.text = sortData[indexPath.row].detailText
         cell.contentBackground.layer.cornerRadius = 10
         cell.contentBackground.layer.masksToBounds = true
         return cell
     }
     
     @IBAction func tapUre(){
-        recordItem.kibun = "mizo_ure"
+        updateKibun(kibun: "mizo_ure")
         print("ureshi")
     }
     @IBAction func tapMa(){
-        recordItem.kibun = "mizo_ma"
+        updateKibun(kibun: "mizo_ma")
         print("ma-ma-")
     }
     @IBAction func tapIya(){
-        recordItem.kibun = "mizo_iya"
+        updateKibun(kibun: "mizo_iya")
         print("iyada")
     }
     @IBAction func tapKana(){
-        recordItem.kibun = "mizo_kana"
+        updateKibun(kibun: "mizo_kana")
         print("kanashi")
+    }
+    
+    @objc private func updateKibun(kibun: String){
+        let results = realm.objects(Record.self)
+        try! realm.write{
+            results[sectionIndex].kibun = kibun
+        }
     }
     
 
