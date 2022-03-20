@@ -68,12 +68,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let contentItems = realm.objects(Record.self)
+        let contentItems = realm.objects(Record.self).sorted(byKeyPath: "listHiduke", ascending: false)
         return contentItems[section].contents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "listHiduke", ascending: false)
+        self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "listHiduke", ascending: false)
         let cell: ListTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? ListTableViewCell
         let sortData = recordItems[indexPath.section].contents.sorted(byKeyPath: "hiduke", ascending: true)
         cell.timeLabel.text = sortData[indexPath.row].dateTime
@@ -96,6 +96,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "listHiduke", ascending: false)
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView")
         if let headerView = view as? HeaderView {
             headerView.setup(image: UIImage(named: "\(recordItems[section].kibun).png")! , title: recordItems[section].date)
