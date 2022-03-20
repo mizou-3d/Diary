@@ -24,6 +24,11 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        changeBtnDesign(button: ureButton)
+        changeBtnDesign(button: maButton)
+        changeBtnDesign(button: iyaButton)
+        changeBtnDesign(button: kanaButton)
 
         dayLabel.text = dateFilter
         let predicate = NSPredicate(format: "date == %@", dateFilter)
@@ -32,6 +37,14 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         timeTable.delegate = self
         timeTable.dataSource = self
+    }
+    
+    @objc private func changeBtnDesign(button: UIButton){
+        button.layer.cornerRadius = 30
+        button.layer.shadowColor = UIColor(named: "navy")?.cgColor
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowRadius = 5.0
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 0.7)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

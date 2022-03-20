@@ -18,7 +18,6 @@
 		D65D59DC27DE62E600B0B09D /* mizo_ma.png in Resources */ = {isa = PBXBuildFile; fileRef = D65D59D527DE62E500B0B09D /* mizo_ma.png */; };
 		D65D59DE27DE6EE200B0B09D /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D59DD27DE6EE200B0B09D /* ListTableViewCell.swift */; };
 		D65D59E527DEDD1900B0B09D /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D59E427DEDD1900B0B09D /* DayTableViewCell.swift */; };
-		D65D59E727DFA69100B0B09D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D59E627DFA69100B0B09D /* RealmService.swift */; };
 		D65D59E927E55F6200B0B09D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D59E827E55F6100B0B09D /* HeaderView.swift */; };
 		D65D59EB27E5672100B0B09D /* CustomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65D59EA27E5672100B0B09D /* CustomHeaderView.xib */; };
 		D65D59ED27E6BB9C00B0B09D /* mizo_clear.png in Resources */ = {isa = PBXBuildFile; fileRef = D65D59EC27E6BB9B00B0B09D /* mizo_clear.png */; };
@@ -49,7 +48,6 @@
 		D65D59D527DE62E500B0B09D /* mizo_ma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mizo_ma.png; sourceTree = "<group>"; };
 		D65D59DD27DE6EE200B0B09D /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		D65D59E427DEDD1900B0B09D /* DayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
-		D65D59E627DFA69100B0B09D /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		D65D59E827E55F6100B0B09D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D65D59EA27E5672100B0B09D /* CustomHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeaderView.xib; sourceTree = "<group>"; };
 		D65D59EC27E6BB9B00B0B09D /* mizo_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mizo_clear.png; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 				D652F9B127D5D47500CB0EC6 /* MyUINavigationViewController.swift */,
 				D65D59DD27DE6EE200B0B09D /* ListTableViewCell.swift */,
 				D65D59E427DEDD1900B0B09D /* DayTableViewCell.swift */,
-				D65D59E627DFA69100B0B09D /* RealmService.swift */,
 				D65D59E827E55F6100B0B09D /* HeaderView.swift */,
 				D65D59EA27E5672100B0B09D /* CustomHeaderView.xib */,
 			);
@@ -228,7 +225,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D652F9B227D5D47500CB0EC6 /* MyUINavigationViewController.swift in Sources */,
-				D65D59E727DFA69100B0B09D /* RealmService.swift in Sources */,
 				D674435D27D2A85800F1DDF1 /* ViewController.swift in Sources */,
 				D65D59E527DEDD1900B0B09D /* DayTableViewCell.swift in Sources */,
 				D674437427D3FBA000F1DDF1 /* DayViewController.swift in Sources */,
