@@ -21,6 +21,7 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet var timeTable: UITableView!
     
     var dateFilter: String = ""
+    var sectionIndex: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,16 +32,16 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         changeBtnDesign(button: kanaButton)
 
         dayLabel.text = dateFilter
-        let predicate = NSPredicate(format: "date == %@", dateFilter)
-        let results = realm.objects(Record.self).filter(predicate)
-        print(results.count)
+        //let predicate = NSPredicate(format: "date == %@", dateFilter)
+        //let results = realm.objects(Record.self).filter(predicate)
+        let results = realm.objects(Record.self)
+        print(results[sectionIndex].contents.count)
         
         timeTable.delegate = self
         timeTable.dataSource = self
     }
     
     @objc private func changeBtnDesign(button: UIButton){
-        button.layer.cornerRadius = 30
         button.layer.shadowColor = UIColor(named: "navy")?.cgColor
         button.layer.shadowOpacity = 0.5
         button.layer.shadowRadius = 5.0
@@ -48,9 +49,10 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let predicate = NSPredicate(format: "date == %@", dateFilter)
-        let results = realm.objects(Record.self).filter(predicate)
-        return results.count
+//        let predicate = NSPredicate(format: "date == %@", dateFilter)
+//        let results = realm.objects(Record.self).filter(predicate)
+        let results = realm.objects(Record.self)
+        return results[sectionIndex].contents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

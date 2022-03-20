@@ -75,7 +75,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\(recordItems[indexPath.row].date) is selected.")
         let dayView = storyboard?.instantiateViewController(withIdentifier: "dayViewController") as! DayViewController
-        dayView.dateFilter =  "\(recordItems[indexPath.row].date)"
+        dayView.dateFilter =  "\(recordItems[indexPath.section].date)"
+        dayView.sectionIndex = indexPath.section
+        print("section: \(indexPath.section), row: \(indexPath.row)")
         self.navigationController?.pushViewController(dayView, animated: true)
     }
     
@@ -83,10 +85,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         recordItems = realm.objects(Record.self)
         return recordItems.count
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return recordItems[section].date
-//    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView")
