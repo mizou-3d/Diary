@@ -29,6 +29,11 @@ class AddViewController: UIViewController {
         
     }
     
+    @IBAction func didTapView(_ sender: UITapGestureRecognizer) {
+            //キーボードを閉じる処理
+        view.endEditing(true)
+    }
+    
     @objc func changeTitle(_ datePicker: UIDatePicker){
         self.navigationItem.title = "\(dateFormat(m_datepicker: datePicker))"
     }

@@ -29,8 +29,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         target: nil,
         action: nil
         )
-        //self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "listHiduke", ascending: false)
-        recordItems = realm.objects(Record.self)
+        self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "listHiduke", ascending: false)
+        print(recordItems)
+        //recordItems = realm.objects(Record.self)
         listTable.reloadData()
         
         //recordItems = realm.objects(Record.self)
@@ -45,14 +46,20 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         listTable.delegate = self
         listTable.dataSource = self
         listTable.sectionHeaderHeight = 60
+        
         addButton.layer.cornerRadius = 40
+        addButton.layer.shadowColor = UIColor.black.cgColor
+        addButton.layer.shadowOpacity = 0.5
+        addButton.layer.shadowRadius = 3.0
+        addButton.layer.shadowOffset = CGSize(width: 0.0, height: 2)
         self.view.bringSubviewToFront(addButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "listHiduke", ascending: false)
-        recordItems = realm.objects(Record.self)
+        self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "listHiduke", ascending: false)
+        print(recordItems)
+        //recordItems = realm.objects(Record.self)
         if recordItems.count > 0 {
             zeroImg.isHidden = true
             zeroLabel.isHidden = true
@@ -66,6 +73,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "listHiduke", ascending: false)
         let cell: ListTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? ListTableViewCell
         let sortData = recordItems[indexPath.section].contents.sorted(byKeyPath: "hiduke", ascending: true)
         cell.timeLabel.text = sortData[indexPath.row].dateTime
@@ -94,10 +102,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             headerView.backgroundColor = UIColor(named: "purple")
         }
         return view
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = UIColor(named: "purple")
     }
     
 //    //Mark: ヘッダーの大きさを設定する

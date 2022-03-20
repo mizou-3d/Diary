@@ -22,6 +22,8 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     var dateFilter: String = ""
     var sectionIndex: Int = 0
+    
+    let shadowView = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +34,55 @@ class DayViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         changeBtnDesign(button: kanaButton)
 
         dayLabel.text = dateFilter
-        //let predicate = NSPredicate(format: "date == %@", dateFilter)
-        //let results = realm.objects(Record.self).filter(predicate)
         let results = realm.objects(Record.self)
         print(results[sectionIndex].contents.count)
         
         timeTable.delegate = self
         timeTable.dataSource = self
+        timeTable.layer.cornerRadius = 30
+//        timeTable.clipsToBounds = true
+//        shadowView.layer.cornerRadius = 10
+//        shadowView.layer.shadowColor = UIColor.black.cgColor
+//        shadowView.layer.shadowOffset = CGSize(width: 0.0, height: -2.0)
+//        shadowView.layer.shadowOpacity = 0.5
+//        shadowView.layer.shadowRadius = 4
+//        shadowView.layer.masksToBounds = false
+//
+//            // viewに追加
+//        self.view.addSubview(shadowView)
+//        self.view.bringSubviewToFront(timeTable)
+        
+        ureButton.addTarget(self, action: #selector(self.pushButton_Animation(_:)), for: .touchDown)
+        ureButton.addTarget(self, action: #selector(self.separateButton_Animation(_:)), for: .touchUpInside)
+        maButton.addTarget(self, action: #selector(self.pushButton_Animation(_:)), for: .touchDown)
+        maButton.addTarget(self, action: #selector(self.separateButton_Animation(_:)), for: .touchUpInside)
+        iyaButton.addTarget(self, action: #selector(self.pushButton_Animation(_:)), for: .touchDown)
+        iyaButton.addTarget(self, action: #selector(self.separateButton_Animation(_:)), for: .touchUpInside)
+        kanaButton.addTarget(self, action: #selector(self.pushButton_Animation(_:)), for: .touchDown)
+        kanaButton.addTarget(self, action: #selector(self.separateButton_Animation(_:)), for: .touchUpInside)
+        
+        timeTable.layer.shadowColor = UIColor.black.cgColor
+        timeTable.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        timeTable.layer.shadowOpacity = 0.5
+        timeTable.layer.shadowRadius = 4
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // サイズ合わせる
+        shadowView.frame = timeTable.frame
+    }
+    
+    @objc func pushButton_Animation(_ sender: UIButton){
+        UIView.animate(withDuration: 0.1, animations:{ () -> Void in
+        sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        })
+    }
+    @objc func separateButton_Animation(_ sender: UIButton){
+        UIView.animate(withDuration: 0.2, animations:{ () -> Void in
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            sender.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
     }
     
     @objc private func changeBtnDesign(button: UIButton){
