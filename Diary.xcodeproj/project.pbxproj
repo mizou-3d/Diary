@@ -19,6 +19,8 @@
 		D65D59DE27DE6EE200B0B09D /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D59DD27DE6EE200B0B09D /* ListTableViewCell.swift */; };
 		D65D59E527DEDD1900B0B09D /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D59E427DEDD1900B0B09D /* DayTableViewCell.swift */; };
 		D65D59E727DFA69100B0B09D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D59E627DFA69100B0B09D /* RealmService.swift */; };
+		D65D59E927E55F6200B0B09D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D59E827E55F6100B0B09D /* HeaderView.swift */; };
+		D65D59EB27E5672100B0B09D /* CustomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65D59EA27E5672100B0B09D /* CustomHeaderView.xib */; };
 		D674435927D2A85800F1DDF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674435827D2A85800F1DDF1 /* AppDelegate.swift */; };
 		D674435B27D2A85800F1DDF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674435A27D2A85800F1DDF1 /* SceneDelegate.swift */; };
 		D674435D27D2A85800F1DDF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674435C27D2A85800F1DDF1 /* ViewController.swift */; };
@@ -47,6 +49,8 @@
 		D65D59DD27DE6EE200B0B09D /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		D65D59E427DEDD1900B0B09D /* DayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
 		D65D59E627DFA69100B0B09D /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		D65D59E827E55F6100B0B09D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		D65D59EA27E5672100B0B09D /* CustomHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeaderView.xib; sourceTree = "<group>"; };
 		D674435527D2A85800F1DDF1 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D674435827D2A85800F1DDF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D674435A27D2A85800F1DDF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 				D65D59DD27DE6EE200B0B09D /* ListTableViewCell.swift */,
 				D65D59E427DEDD1900B0B09D /* DayTableViewCell.swift */,
 				D65D59E627DFA69100B0B09D /* RealmService.swift */,
+				D65D59E827E55F6100B0B09D /* HeaderView.swift */,
+				D65D59EA27E5672100B0B09D /* CustomHeaderView.xib */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 				D674436027D2A85800F1DDF1 /* Main.storyboard in Resources */,
 				D65D59D827DE62E600B0B09D /* mizo_iya.png in Resources */,
 				D65D59D727DE62E600B0B09D /* mizo_home.png in Resources */,
+				D65D59EB27E5672100B0B09D /* CustomHeaderView.xib in Resources */,
 				D65D59DB27DE62E600B0B09D /* mizo_kana.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,6 +230,7 @@
 				D674437427D3FBA000F1DDF1 /* DayViewController.swift in Sources */,
 				D674437627D3FBAD00F1DDF1 /* AddViewController.swift in Sources */,
 				D674435927D2A85800F1DDF1 /* AppDelegate.swift in Sources */,
+				D65D59E927E55F6200B0B09D /* HeaderView.swift in Sources */,
 				D65D59DE27DE6EE200B0B09D /* ListTableViewCell.swift in Sources */,
 				D674437227D3FB8E00F1DDF1 /* ListViewController.swift in Sources */,
 				D652F9B427D5D94200CB0EC6 /* Record.swift in Sources */,

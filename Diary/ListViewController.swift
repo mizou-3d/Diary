@@ -29,31 +29,40 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         target: nil,
         action: nil
         )
-        //self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "hiduke", ascending: false)
-        //recordItems = realm.objects(Record.self)
+        //self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "listHiduke", ascending: false)
+        recordItems = realm.objects(Record.self)
         listTable.reloadData()
         
-        recordItems = realm.objects(Record.self)
+        //recordItems = realm.objects(Record.self)
         if recordItems.count > 0 {
             zeroImg.isHidden = true
             zeroLabel.isHidden = true
         }
+        
+        let nib = UINib(nibName: "CustomHeaderView", bundle: nil)
+        listTable.register(nib, forHeaderFooterViewReuseIdentifier: "HeaderView")
 
         listTable.delegate = self
         listTable.dataSource = self
+        listTable.sectionHeaderHeight = 60
         addButton.layer.cornerRadius = 40
         self.view.bringSubviewToFront(addButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "hiduke", ascending: false)
+        //self.recordItems = realm.objects(Record.self).sorted(byKeyPath: "listHiduke", ascending: false)
+        recordItems = realm.objects(Record.self)
+        if recordItems.count > 0 {
+            zeroImg.isHidden = true
+            zeroLabel.isHidden = true
+        }
         listTable.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let contentItems = realm.objects(Record.self)
-        return contentItems.count
+        return contentItems[section].contents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,8 +84,21 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         return recordItems.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return recordItems[section].date
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return recordItems[section].date
+//    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView")
+        if let headerView = view as? HeaderView {
+            headerView.setup(image: UIImage(named: "\(recordItems[section].kibun).png")! , title: recordItems[section].date)
+            headerView.backgroundColor = UIColor(named: "purple")
+        }
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor(named: "purple")
     }
     
 //    //Mark: ヘッダーの大きさを設定する

@@ -46,24 +46,33 @@ class AddViewController: UIViewController {
     
     
     @IBAction func save(){
+        let records = realm.objects(Record.self)
         let recordItem = Record()
         let contentItem = Content(value: ["hiduke": datePicker.date, "dateTime": timeFormat(m_datepicker: datePicker), "detailText": self.contentTextView.text!])
-        let predicate = NSPredicate(format: "date == %@", dateFormat(m_datepicker: datePicker))
-        if let results = realm.objects(Record.self).filter(predicate) as Optional{
-            realm.objects(Record.self)[index(ofAccessibilityElement: results)].contents.append(contentItem)
-            print(index(ofAccessibilityElement: results))
-        }else{
-            //recordItem.recordCount += 1
-            recordItem.date = dateFormat(m_datepicker: datePicker)
-            recordItem.contents.append(contentItem)
-            //recordItem.contents = [contentItem] as! List<Content>
-        }
-        //let list = recordItem.contents.sorted(byKeyPath: "hiduke", ascending: false)
-        //recordItem.contents.update(list)
-        try! realm.write{
-            realm.add(recordItem, update: .modified)
-        }
         
+        if records.count < 1{
+            recordItem.date = dateFormat(m_datepicker: datePicker)
+            recordItem.listHiduke = datePicker.date
+            recordItem.kibun = "mizo_ma"
+            recordItem.contents.append(contentItem)
+            try! realm.write{
+                realm.add(recordItem)
+            }
+        } else {
+            if let result = records.filter({$0.date == self.dateFormat(m_datepicker: self.datePicker)}).first{
+                try! realm.write{
+                    result.contents.append(contentItem)
+                }
+            }else{
+                recordItem.date = dateFormat(m_datepicker: datePicker)
+                recordItem.listHiduke = datePicker.date
+                recordItem.kibun = "mizo_ma"
+                recordItem.contents.append(contentItem)
+                try! realm.write{
+                    realm.add(recordItem)
+                }
+            }
+        }
         
         let popoverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "popoverVC")
         self.addChild(popoverVC)
