@@ -370,12 +370,6 @@
                                     <constraint firstAttribute="height" constant="300" id="hqQ-Jn-cA7"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="記録できたのすごい！この調子！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9p-sY-he4">
-                                <rect key="frame" x="79.5" y="318" width="255" height="20"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" name="navy"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hukidashi.png" translatesAutoresizingMaskIntoConstraints="NO" id="WrK-89-Blc">
                                 <rect key="frame" x="32" y="203" width="350" height="290"/>
                                 <constraints>
@@ -383,6 +377,12 @@
                                     <constraint firstAttribute="height" constant="290" id="Yl4-pT-eCq"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="記録できたのすごい！この調子！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9p-sY-he4">
+                                <rect key="frame" x="79.5" y="318" width="255" height="20"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <color key="textColor" name="navy"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ImV-L1-SJs"/>
                         <color key="backgroundColor" white="0.65944531499123094" alpha="0.51126320946295534" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -391,8 +391,10 @@
                             <constraint firstItem="WrK-89-Blc" firstAttribute="centerY" secondItem="WSe-O9-Lat" secondAttribute="centerY" constant="-100" id="4BH-A2-9xa"/>
                             <constraint firstItem="ZbP-4L-hrl" firstAttribute="centerY" secondItem="WSe-O9-Lat" secondAttribute="centerY" constant="150" id="IDA-iA-GjV"/>
                             <constraint firstItem="D9p-sY-he4" firstAttribute="centerX" secondItem="WSe-O9-Lat" secondAttribute="centerX" id="ItI-CH-CEU"/>
+                            <constraint firstItem="D9p-sY-he4" firstAttribute="leading" secondItem="ImV-L1-SJs" secondAttribute="leading" constant="79.5" id="bev-KX-m2n"/>
                             <constraint firstItem="WrK-89-Blc" firstAttribute="centerX" secondItem="WSe-O9-Lat" secondAttribute="centerX" id="dA0-Vr-3iv"/>
                             <constraint firstItem="ZbP-4L-hrl" firstAttribute="centerX" secondItem="WSe-O9-Lat" secondAttribute="centerX" id="tP0-tf-Obs"/>
+                            <constraint firstItem="ImV-L1-SJs" firstAttribute="trailing" secondItem="D9p-sY-he4" secondAttribute="trailing" constant="79.5" id="y44-nP-srI"/>
                         </constraints>
                     </view>
                 </viewController>
