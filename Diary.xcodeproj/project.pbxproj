@@ -21,6 +21,7 @@
 		D65D59E727DFA69100B0B09D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D59E627DFA69100B0B09D /* RealmService.swift */; };
 		D65D59E927E55F6200B0B09D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65D59E827E55F6100B0B09D /* HeaderView.swift */; };
 		D65D59EB27E5672100B0B09D /* CustomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D65D59EA27E5672100B0B09D /* CustomHeaderView.xib */; };
+		D65D59ED27E6BB9C00B0B09D /* mizo_clear.png in Resources */ = {isa = PBXBuildFile; fileRef = D65D59EC27E6BB9B00B0B09D /* mizo_clear.png */; };
 		D674435927D2A85800F1DDF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674435827D2A85800F1DDF1 /* AppDelegate.swift */; };
 		D674435B27D2A85800F1DDF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674435A27D2A85800F1DDF1 /* SceneDelegate.swift */; };
 		D674435D27D2A85800F1DDF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674435C27D2A85800F1DDF1 /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		D65D59E627DFA69100B0B09D /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		D65D59E827E55F6100B0B09D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D65D59EA27E5672100B0B09D /* CustomHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeaderView.xib; sourceTree = "<group>"; };
+		D65D59EC27E6BB9B00B0B09D /* mizo_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mizo_clear.png; sourceTree = "<group>"; };
 		D674435527D2A85800F1DDF1 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D674435827D2A85800F1DDF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D674435A27D2A85800F1DDF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		D65D59CE27DE62E500B0B09D /* DailyMizochan_Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D65D59EC27E6BB9B00B0B09D /* mizo_clear.png */,
 				D65D59CF27DE62E500B0B09D /* mizo_write.png */,
 				D65D59D027DE62E500B0B09D /* mizo_home.png */,
 				D65D59D127DE62E500B0B09D /* mizo_iya.png */,
@@ -212,6 +215,7 @@
 				D65D59D827DE62E600B0B09D /* mizo_iya.png in Resources */,
 				D65D59D727DE62E600B0B09D /* mizo_home.png in Resources */,
 				D65D59EB27E5672100B0B09D /* CustomHeaderView.xib in Resources */,
+				D65D59ED27E6BB9C00B0B09D /* mizo_clear.png in Resources */,
 				D65D59DB27DE62E600B0B09D /* mizo_kana.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -53,7 +53,7 @@ class AddViewController: UIViewController {
         if records.count < 1{
             recordItem.date = dateFormat(m_datepicker: datePicker)
             recordItem.listHiduke = datePicker.date
-            recordItem.kibun = "mizo_ma"
+            recordItem.kibun = "mizo_clear"
             recordItem.contents.append(contentItem)
             try! realm.write{
                 realm.add(recordItem)
@@ -66,7 +66,7 @@ class AddViewController: UIViewController {
             }else{
                 recordItem.date = dateFormat(m_datepicker: datePicker)
                 recordItem.listHiduke = datePicker.date
-                recordItem.kibun = "mizo_ma"
+                recordItem.kibun = "mizo_clear"
                 recordItem.contents.append(contentItem)
                 try! realm.write{
                     realm.add(recordItem)
